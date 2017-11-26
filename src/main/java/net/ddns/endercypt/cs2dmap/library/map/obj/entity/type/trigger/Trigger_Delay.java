@@ -34,7 +34,7 @@ public class Trigger_Delay extends Cs2dEntity
 		else
 		{ // millisecond
 			setIntSetting(0, 0);
-			setIntSetting(1, (int) (value * 1000));
+			setIntSetting(1, milliseconds);
 		}
 	}
 }
