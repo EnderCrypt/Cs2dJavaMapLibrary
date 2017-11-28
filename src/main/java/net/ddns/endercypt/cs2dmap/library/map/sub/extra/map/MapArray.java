@@ -94,36 +94,32 @@ public class MapArray
 		double rxc = x1 + xc;
 		double ryc = y1 + yc;
 
-		for (int x = x1; x < x2 + 1; x++)
+		iterate(x1, y1, x2, y2, new MapIterator()
 		{
-			for (int y = y1; y < y2 + 1; y++)
+			@Override
+			public void process(int x, int y, Tile tile)
 			{
-				if (isInBounds(x, y))
-				{
-					double xoffset = 1.0 / xc * Math.abs(x - rxc);
-					double yoffset = 1.0 / yc * Math.abs(y - ryc);
-					double dist = Math.hypot(xoffset, yoffset);
-					if (dist <= 1.0)
-					{
-						tileAction.process(tile(x, y));
-					}
-				}
-			}
-		}
-	}
-
-	public void rectangle(int x1, int y1, int x2, int y2, TileAction tileAction)
-	{
-		for (int x = x1; x < x2 + 1; x++)
-		{
-			for (int y = y1; y < y2 + 1; y++)
-			{
-				if (isInBounds(x, y))
+				double xoffset = 1.0 / xc * Math.abs(x - rxc);
+				double yoffset = 1.0 / yc * Math.abs(y - ryc);
+				double dist = Math.hypot(xoffset, yoffset);
+				if (dist <= 1.0)
 				{
 					tileAction.process(tile(x, y));
 				}
 			}
-		}
+		});
+	}
+
+	public void rectangle(int x1, int y1, int x2, int y2, TileAction tileAction)
+	{
+		iterate(x1, y1, x2, y2, new MapIterator()
+		{
+			@Override
+			public void process(int x, int y, Tile tile)
+			{
+				tileAction.process(tile(x, y));
+			}
+		});
 	}
 
 	public void fill(TileAction tileAction)
