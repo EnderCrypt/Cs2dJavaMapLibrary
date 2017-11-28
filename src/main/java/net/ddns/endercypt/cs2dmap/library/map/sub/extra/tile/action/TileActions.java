@@ -18,6 +18,19 @@ public abstract class TileActions
 		};
 	}
 
+	public static TileAction clear()
+	{
+		return new TileAction()
+		{
+			@Override
+			public void process(Tile tile)
+			{
+				tile.setTileModifier(new DisableTileModifiers());
+				tile.setFrame(0);
+			}
+		};
+	}
+
 	public static TileAction removeModifier()
 	{
 		return setModifier(new DisableTileModifiers());
