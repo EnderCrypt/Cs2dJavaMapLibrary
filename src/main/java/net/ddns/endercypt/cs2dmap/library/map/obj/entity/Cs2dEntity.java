@@ -105,6 +105,11 @@ public class Cs2dEntity implements RawData<RawCs2dEntity>
 		return triggers;
 	}
 
+	public void addTrigger(List<String> triggers)
+	{
+		addTrigger(triggers.stream().toArray(String[]::new));
+	}
+
 	public void addTrigger(String... triggers)
 	{
 		// clean
