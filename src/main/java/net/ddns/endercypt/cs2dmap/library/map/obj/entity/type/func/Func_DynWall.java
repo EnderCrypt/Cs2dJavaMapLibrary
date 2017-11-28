@@ -31,7 +31,7 @@ public class Func_DynWall extends Cs2dEntity
 
 	public void setCloseOnlyIfNotBlocked(boolean value)
 	{
-		setIntSetting(2, value ? 0 : 1);
+		setIntSetting(2, value ? 1 : 0);
 	}
 
 	public void setTransparency(double value)
