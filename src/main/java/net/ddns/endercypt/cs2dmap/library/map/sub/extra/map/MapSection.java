@@ -4,6 +4,11 @@ import net.ddns.endercypt.cs2dmap.library.map.obj.tile.Tile;
 
 public class MapSection extends MapArray
 {
+	public MapSection(int width, int height)
+	{
+		super(width, height);
+	}
+
 	public MapSection(MapArray src, int x1, int y1, int x2, int y2)
 	{
 		super(x2 - x1 + 1, y2 - y1 + 1);
