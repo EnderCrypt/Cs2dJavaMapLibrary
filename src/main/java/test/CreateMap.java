@@ -10,11 +10,13 @@ import net.ddns.endercypt.cs2dmap.library.map.obj.entity.type.info.Info_CT;
 import net.ddns.endercypt.cs2dmap.library.map.obj.entity.type.info.Info_Hostage;
 import net.ddns.endercypt.cs2dmap.library.map.obj.entity.type.info.Info_T;
 import net.ddns.endercypt.cs2dmap.library.map.obj.entity.type.info.Info_Hostage.HostageLooks;
+import net.ddns.endercypt.cs2dmap.library.map.obj.tile.Tile;
 import net.ddns.endercypt.cs2dmap.library.map.obj.tile.modifier.ColorTileModifier;
 import net.ddns.endercypt.cs2dmap.library.map.sub.Cs2dBackground;
 import net.ddns.endercypt.cs2dmap.library.map.sub.Cs2dEntities;
 import net.ddns.endercypt.cs2dmap.library.map.sub.Cs2dMapArray;
 import net.ddns.endercypt.cs2dmap.library.map.sub.Cs2dTiles;
+import net.ddns.endercypt.cs2dmap.library.map.sub.extra.map.MapIterator;
 import net.ddns.endercypt.cs2dmap.library.map.sub.extra.map.MapSection;
 import net.ddns.endercypt.cs2dmap.library.map.sub.extra.tile.TileMode;
 import net.ddns.endercypt.cs2dmap.library.map.sub.extra.tile.action.TileActions;
@@ -47,6 +49,15 @@ public class CreateMap
 			map.circle(1, 1, 8, 8, TileActions.setFrame(34));
 			map.tile(2, 9).setFrame(5);
 			map.tile(5, 8).setTileModifier(new ColorTileModifier(255, 0, 0, 1));
+
+			map.iterate(new MapIterator()
+			{
+				@Override
+				public void process(int x, int y, Tile tile)
+				{
+					tile.setFrame(15);
+				}
+			});
 
 			MapSection copy = map.copy(0, 0, 5, 5);
 			copy.pasteInto(map, -1, -1);

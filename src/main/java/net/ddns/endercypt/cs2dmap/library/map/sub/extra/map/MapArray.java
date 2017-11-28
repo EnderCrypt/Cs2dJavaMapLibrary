@@ -153,22 +153,23 @@ public class MapArray
 		});
 	}
 
+	public void iterate(MapIterator mapIterator)
+	{
+		iterate(0, 0, getWidth(), getHeight(), mapIterator);
+	}
+
 	public void iterate(int x1, int y1, int x2, int y2, MapIterator mapIterator)
 	{
+		// limit to inside map
+		x1 = Math.max(x1, 0);
+		y1 = Math.max(y1, 0);
+		x2 = Math.min(x2, getWidth() - 1);
+		y2 = Math.min(y2, getHeight() - 1);
+
+		// iterate
 		for (int x = x1; x < x2 + 1; x++)
 		{
 			for (int y = y1; y < y2 + 1; y++)
-			{
-				mapIterator.process(x, y, tile(x, y));
-			}
-		}
-	}
-
-	public void iterate(MapIterator mapIterator)
-	{
-		for (int x = 0; x < getWidth(); x++)
-		{
-			for (int y = 0; y < getHeight(); y++)
 			{
 				mapIterator.process(x, y, tile(x, y));
 			}
