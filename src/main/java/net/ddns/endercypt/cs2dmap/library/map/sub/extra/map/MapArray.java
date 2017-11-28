@@ -1,6 +1,7 @@
 package net.ddns.endercypt.cs2dmap.library.map.sub.extra.map;
 
 import java.awt.Dimension;
+import java.util.function.Supplier;
 
 import net.ddns.endercypt.cs2dmap.library.map.obj.tile.Tile;
 import net.ddns.endercypt.cs2dmap.library.map.sub.extra.tile.action.TileAction;
@@ -59,7 +60,7 @@ public class MapArray
 				newMap[x][y] = map[x][y];
 			}
 		}
-		// fill null's
+		// clean
 		for (int x = 0; x < new_width; x++)
 		{
 			for (int y = 0; y < new_height; y++)
@@ -70,9 +71,64 @@ public class MapArray
 				}
 			}
 		}
+		// clean
+		clean(newMap, () -> new Tile(new RawCs2dTile((byte) 0)));
 		// set
 		width = new_width;
 		height = new_height;
+		map = newMap;
+	}
+
+	private static void clean(Tile[][] map, Supplier<Tile> replacementSupplier)
+	{
+		for (int x = 0; x < map.length; x++)
+		{
+			Tile[] inMap = map[x];
+			for (int y = 0; y < inMap.length; y++)
+			{
+				Tile tile = inMap[y];
+				if (tile == null)
+				{
+					inMap[y] = replacementSupplier.get();
+				}
+			}
+		}
+	}
+
+	public void shift(int x, int y, TileAction defaultAction)
+	{
+		Tile[][] newMap = new Tile[getWidth()][getHeight()];
+		//
+		int x1 = -Math.min(0, x);
+		int y1 = -Math.min(0, y);
+		int x2 = getWidth() - Math.max(x, 0) - 1;
+		int y2 = getHeight() - Math.max(y, 0) - 1;
+		// move
+		iterate(x1, y1, x2, y2, new MapIterator()
+		{
+			@Override
+			public void process(int xi, int yi, Tile tile)
+			{
+				int tx = xi + x;
+				int ty = yi + y;
+				if (isInBounds(tx, ty))
+				{
+					newMap[xi + x][yi + y] = tile;
+				}
+			}
+		});
+		// clean
+		clean(newMap, new Supplier<Tile>()
+		{
+			@Override
+			public Tile get()
+			{
+				Tile tile = new Tile(0);
+				defaultAction.process(tile);
+				return tile;
+			}
+		});
+		// set
 		map = newMap;
 	}
 

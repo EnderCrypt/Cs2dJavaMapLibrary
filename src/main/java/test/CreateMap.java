@@ -2,6 +2,9 @@ package test;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 import net.ddns.endercypt.cs2dmap.library.file.stream.exception.Cs2dUnexpectedEOFException;
 import net.ddns.endercypt.cs2dmap.library.file.write.Cs2dMapWriter;
@@ -51,6 +54,8 @@ public class CreateMap
 			MapSection copy = map.copy(0, 0, 5, 5);
 			copy.pasteInto(map, -1, -1);
 
+			map.shift(100, 100, TileActions.setFrame(39));
+
 			cs2dMap.update(map);
 
 			// entities
@@ -79,6 +84,9 @@ public class CreateMap
 
 			// save
 			Cs2dMapWriter.write(cs2dMap, new File("maps/test.map"));
+
+			// copy
+			Files.copy(Paths.get("maps/test.map"), Paths.get("/Users/EnderCrypt/Library/Application Support/Steam/steamapps/common/CS2D/maps/test.map"), StandardCopyOption.REPLACE_EXISTING);
 		}
 		catch (Cs2dUnexpectedEOFException e)
 		{
