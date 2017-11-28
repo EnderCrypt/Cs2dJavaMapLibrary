@@ -54,7 +54,7 @@ public class CreateMap
 			MapSection copy = map.copy(0, 0, 5, 5);
 			copy.pasteInto(map, -1, -1);
 
-			map.shift(100, 100, TileActions.setFrame(39));
+			map.shift(1, 1, TileActions.setFrame(39));
 
 			cs2dMap.update(map);
 
