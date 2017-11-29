@@ -1,7 +1,11 @@
-# Cs2dJavaMapLibrary
+# Java CS2D Map Library
+Version 0.1 (Alpha, expect bugs)
 
-early alpha development, expect bugs.
+Created by EnderCrypt (USGN: 5783)
 
+Usgn File: http://www.unrealsoftware.de/files_show.php?file=17570
+Github: https://github.com/EnderCrypt/Cs2dJavaMapLibrary
+Wiki: https://github.com/EnderCrypt/Cs2dJavaMapLibrary/wiki
 
 Maven dependancy:
 ```Maven
