@@ -14,6 +14,11 @@ import net.ddns.endercypt.cs2dmap.library.raw.rawbyte.RawByte;
 
 public class Cs2dMapWriter
 {
+	public static void write(Cs2dMap cs2dMap, String file) throws FileNotFoundException, IOException
+	{
+		write(cs2dMap, new File(file));
+	}
+
 	public static void write(Cs2dMap cs2dMap, File file) throws FileNotFoundException, IOException
 	{
 		RawCs2dMap rawCs2dMap = cs2dMap.getRaw();

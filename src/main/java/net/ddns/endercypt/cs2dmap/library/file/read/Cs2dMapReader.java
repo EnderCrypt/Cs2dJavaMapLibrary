@@ -19,6 +19,11 @@ import net.ddns.endercypt.cs2dmap.library.raw.rawbyte.RawByteFlags;
 
 public class Cs2dMapReader
 {
+	public static Cs2dMap read(String file) throws FileNotFoundException, IOException
+	{
+		return read(new File(file));
+	}
+
 	public static Cs2dMap read(File file) throws FileNotFoundException, IOException
 	{
 		RawCs2dMap rawCs2dMap = new RawCs2dMap();
