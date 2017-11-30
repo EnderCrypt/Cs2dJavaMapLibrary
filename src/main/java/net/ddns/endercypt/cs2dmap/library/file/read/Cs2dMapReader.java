@@ -31,7 +31,18 @@ public class Cs2dMapReader
 		try (Cs2dByteReader reader = new Cs2dByteReader(file))
 		{
 			// (1) HEADER
-			rawCs2dMap.header = reader.readString();
+			String header = reader.readString();
+			switch (header)
+			{
+			case "Unreal Software's CS2D Map File":
+			case "Unreal Software's Counter-Strike 2D Map File":
+			case "Unreal Software's Counter-Strike 2D Map File (max)":
+				header = RawCs2dMap.HEADER;
+				break;
+			default:
+				throw new Cs2dMapReadException("Unknon map header: " + header);
+			}
+			rawCs2dMap.header = header;
 
 			// ----- 10 bytes for map settings / info
 			rawCs2dMap.scroll_map_like_tiles = reader.readBooleanByte();
