@@ -76,7 +76,7 @@ public class RawCs2dMap
 
 		// ----- 10 strings for map settings / info
 		name_of_the_map_author = "Player";
-		name_of_the_program_used_to_save_the_map = "EnderCrypt's Cs2d Java map library (USGN: 5783)";
+		name_of_the_program_used_to_save_the_map = "EnderCrypt's CS2D Java map library (USGN: 5783) https://github.com/EnderCrypt/Cs2dJavaMapLibrary";
 
 		// ----- More map settings
 		tile_count = 80;
