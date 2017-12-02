@@ -11,7 +11,7 @@ import net.ddns.endercrypt.cs2dmap.library.raw.RawCs2dEntity;
 
 public class Cs2dEntityManager
 {
-	private static final String entityClassPackage = "net.ddns.endercypt.cs2dmap.library.map.obj.entity.type";
+	private static final String entityClassPackage = "net.ddns.endercrypt.cs2dmap.library.map.obj.entity.type";
 
 	private static final Map<Integer, EntityTypeManager> entityManagers = new HashMap<>();
 
