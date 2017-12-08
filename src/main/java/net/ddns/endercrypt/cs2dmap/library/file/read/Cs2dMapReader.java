@@ -35,6 +35,7 @@ public class Cs2dMapReader
 			switch (header)
 			{
 			case "Unreal Software's CS2D Map File":
+			case "Unreal Software's CS2D Map File (max)":
 			case "Unreal Software's Counter-Strike 2D Map File":
 			case "Unreal Software's Counter-Strike 2D Map File (max)":
 				header = RawCs2dMap.HEADER;
