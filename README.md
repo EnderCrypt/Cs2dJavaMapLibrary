@@ -1,5 +1,5 @@
 # Java CS2D Map Library
-Version 0.1 (Alpha, expect bugs)
+Version 0.2 (Alpha, expect bugs)
 
 Created by EnderCrypt (USGN: 5783)
 

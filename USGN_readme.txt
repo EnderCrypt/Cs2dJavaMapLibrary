@@ -1,6 +1,7 @@
 [b]Java CS2D Map Library[/b]
 
-Version 0.1 (Alpha, expect bugs)
+Version 0.2 (Alpha, expect bugs)
+Tested on CS2D v1.0.0.6
 
 [i]Have you ever felt tired of doing repetitive things in the map editor such as placing several hundred trees or adding random decals everywhere? This library may help you by allowing you to write Java code that can programmatically create and modify maps![/i]
 
@@ -35,6 +36,11 @@ For more detailed info and instructions, check out [url=https://github.com/Ender
 </dependencies>[/code][/more]
 
 [i]Please note that due to the early stage in development of this library, its quite possible that maps generated may turn out to be corrupted. if you receive a corrupted map then please send it to me so i could debug and track down what caused the problem.[/i]
+
+[more="Changelog"]V0.1:
+	first release of the library
+V0.2:
+	bugfixes, including issues like not being able to load maps with certain headers[/more]
 
 Github: [url]https://github.com/EnderCrypt/Cs2dJavaMapLibrary[/url]
 
