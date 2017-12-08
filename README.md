@@ -20,7 +20,7 @@ Maven dependancy:
   <dependency>
     <groupId>com.github.EnderCrypt</groupId>
     <artifactId>Cs2dJavaMapLibrary</artifactId>
-    <version>41b21f44c9</version>
+    <version>734961534f</version>
   </dependency>
 </dependencies>
 ```
