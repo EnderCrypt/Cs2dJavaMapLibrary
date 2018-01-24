@@ -7,6 +7,8 @@ Created by EnderCrypt (USGN: 5783)
 * Github: https://github.com/EnderCrypt/Cs2dJavaMapLibrary
 * Wiki: https://github.com/EnderCrypt/Cs2dJavaMapLibrary/wiki
 
+[![](https://jitpack.io/v/EnderCrypt/Cs2dJavaMapLibrary.svg)](https://jitpack.io/#EnderCrypt/Cs2dJavaMapLibrary)
+
 Maven dependancy:
 ```Maven
 <repositories>
